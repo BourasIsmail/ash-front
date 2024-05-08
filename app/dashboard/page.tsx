@@ -1,4 +1,3 @@
-import { DataTable } from "../components/DataTable";
 import { SideBar } from "../components/SideBar";
 
 export default function () {
@@ -14,7 +13,6 @@ export default function () {
             Welcome back!
           </p>
         </div>
-        <DataTable />
       </main>
     </>
   );
