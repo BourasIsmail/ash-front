@@ -2,7 +2,6 @@
 
 import { ColumnDef } from "@tanstack/react-table";
 import { access } from "fs";
-import { Association, associations } from "../data/Association";
 import { ArrowUpDown, MoreHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,37 +12,38 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { DataTableColumnHeader } from "../components/ui/DataTableColumnHeader";
+import { Etablissement } from "@/app/data/Etablissement";
+import { DataTableColumnHeader } from "@/app/components/ui/DataTableColumnHeader";
 
-export const columns: ColumnDef<Association>[] = [
+export const columns: ColumnDef<Etablissement>[] = [
   {
-    accessorKey: "nomAssociation",
+    accessorKey: "nomEtablissement",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="اسم الجمعية" />
+      <DataTableColumnHeader column={column} title="اسم المؤسسة" />
     ),
   },
   {
-    accessorKey: "nomPresident",
+    accessorKey: "email",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="اسم الرئيس" />
+      <DataTableColumnHeader column={column} title="البريد الالكتروني " />
     ),
   },
   {
-    accessorKey: "emailPresident",
+    accessorKey: "milieu",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="البريد الإلكتروني" />
+      <DataTableColumnHeader column={column} title="المجال الترابي" />
     ),
   },
   {
-    accessorKey: "adresse",
+    accessorKey: "codeAutorisation",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="العنوان" />
+      <DataTableColumnHeader column={column} title="رقم الترخيص" />
     ),
   },
   {
-    accessorKey: "province.name",
+    accessorKey: "nomDirecteur",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="الإقليم" />
+      <DataTableColumnHeader column={column} title="مدير المؤسسة" />
     ),
   },
   {
@@ -61,10 +61,9 @@ export const columns: ColumnDef<Association>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent className="text-right" align="end">
             <DropdownMenuLabel>الوظائف</DropdownMenuLabel>
-            <DropdownMenuItem>تفاصيل الجمعية</DropdownMenuItem>
+            <DropdownMenuItem>تفاصيل المؤسسة</DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>المؤسسات التابعة للجمعية</DropdownMenuItem>
-            <DropdownMenuItem>حذف الجمعية</DropdownMenuItem>
+            <DropdownMenuItem>حذف المؤسسة</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       );

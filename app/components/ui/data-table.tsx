@@ -73,19 +73,19 @@ export function DataTable<TData, TValue>({
       columnVisibility,
     },
   });
-
   return (
     <div>
       <div className="flex items-center py-4 gap-2">
         <Input
-          placeholder="Filter nom de l'association ..."
+          placeholder="البحث بالإسم..."
           value={
-            (table.getColumn("nomAssociation")?.getFilterValue() as string) ??
-            ""
+            (table
+              .getColumn(table.getAllColumns()[0].id)
+              ?.getFilterValue() as string) ?? ""
           }
           onChange={(event) =>
             table
-              .getColumn("nomAssociation")
+              .getColumn(table.getAllColumns()[0].id)
               ?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
@@ -93,7 +93,7 @@ export function DataTable<TData, TValue>({
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">
-              Columns
+              عناصر الجدول
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
